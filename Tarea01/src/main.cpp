@@ -12,6 +12,7 @@ int main()
   system("clear");
   char option;
   bool cycleMenu = true;
+  // srand(time(NULL));
   do
   {
     cout << "a.- Tamano y rangos de los Tipos de Datos Primitivos" << endl;
@@ -25,6 +26,7 @@ int main()
     case 'a': //Primitive data types
       PrimitiveDataTypes ValuesTable;
       ValuesTable.PrintValuesTable();
+      cout << endl;
       break;
     case 'b': // Structured data types
       StructuredDataTypes Matrix;

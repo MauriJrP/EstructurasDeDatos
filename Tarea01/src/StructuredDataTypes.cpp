@@ -1,7 +1,3 @@
-#include <iostream>
-#include <cstdlib>
-#include <iomanip>
-
 #include "../include/StructuredDataTypes.h"
 
 using namespace std;

@@ -1,6 +1,9 @@
-// #pragma once
-// #ifndef PRIMITIVEDATATYPES_H
-// #define PRIMITIVEDATATYPES_H
+#include <iostream>
+#include <climits>
+#include <cfloat>
+#include <cstdlib>
+#include <iomanip>
+#include <limits>
 
 class PrimitiveDataTypes
 {
@@ -20,6 +23,3 @@ private:
     double _double;
   } values;
 };
-
-// #endif
-// #include "../src/PrimitiveDataTypes.cpp"

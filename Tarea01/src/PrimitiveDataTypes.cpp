@@ -1,10 +1,3 @@
-#include <iostream>
-#include <climits>
-#include <cfloat>
-#include <cstdlib>
-#include <iomanip>
-#include <limits>
-
 #include "../include/PrimitiveDataTypes.h"
 
 using namespace std;

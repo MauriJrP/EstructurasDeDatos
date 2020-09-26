@@ -1,3 +1,7 @@
+#include <iostream>
+#include <cstdlib>
+#include <iomanip>
+
 class StructuredDataTypes
 {
 public:
