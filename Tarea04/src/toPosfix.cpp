@@ -36,22 +36,24 @@ ToPosfix::ToPosfix(){}
 
 ToPosfix::ToPosfix(const ToPosfix &){}
 
-string ToPosfix::infixToPosfix(const string &expression)
+string ToPosfix::infixToPosfix(Queue<char> &expression)
 {
+  char character;
   string result{""};
-  for ( int i{0}; i < expression.length(); i++ ) {
-    if ( isOperator(expression[i]) ) {
+  while ( !expression.isEmpty() ) {
+    character = expression.dequeue();
+    if ( isOperator(character) ) {
       try {
         if ( myStack.getTop() != '(' ) {
-          while ( getImportance(myStack.getTop()) >= getImportance(expression[i]) ) {
+          while ( getImportance(myStack.getTop()) >= getImportance(character) ) {
             result += myStack.pop();
           }
         }
       } catch (StackException e) {}
-      myStack.push(expression[i]);
-    } else if ( isGrouper(expression[i]) ) {
-      if ( expression[i] == '(' ) {
-        myStack.push(expression[i]);
+      myStack.push(character);
+    } else if ( isGrouper(character) ) {
+      if ( character == '(' ) {
+        myStack.push(character);
       } else {
         try {
           while ( myStack.getTop() != '(' ) {
@@ -61,7 +63,7 @@ string ToPosfix::infixToPosfix(const string &expression)
         } catch (StackException e) {}
       }
     } else {
-      result += expression[i];
+      result += character;
     }
   }
 
@@ -70,3 +72,5 @@ string ToPosfix::infixToPosfix(const string &expression)
   }
   return result;
 }
+
+

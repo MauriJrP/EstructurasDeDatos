@@ -4,6 +4,7 @@
 #include <iostream>
 #include "stack.h"
 #include <string>
+#include "queue.h"
 
 class ToPosfix
 {
@@ -17,7 +18,7 @@ public:
   ToPosfix();
   ToPosfix(const ToPosfix &);
 
-  std::string infixToPosfix(const std::string &);
+  std::string infixToPosfix(Queue<char> &);
 };
 
 #endif // __POSFIX_H__
