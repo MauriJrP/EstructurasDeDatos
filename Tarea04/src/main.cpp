@@ -18,7 +18,7 @@ int main(int argc, const char** argv) {
   }
 
   ToPosfix converter;
-  stringBuffer = converter.infixToPosfix(stringBuffer);
+  stringBuffer = converter.infixToPosfix(infixExpression);
 
   Queue<char> posfixExpression;
   for ( int i{0}; i < stringBuffer.length(); i++ ) {
