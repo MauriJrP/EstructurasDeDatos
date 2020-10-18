@@ -1,8 +1,10 @@
 #include <iostream>
 
-#include "../include/menu.h"
+using namespace std;
+
+#include "../include/Menu.h"
 
 int main() {
-  List<Song> myList;
-  Menu myMenu = Menu(myList);
+  Menu menu = Menu();
+  menu.chooseOption();
 }
