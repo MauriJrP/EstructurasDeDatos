@@ -3,23 +3,22 @@
 
 #include <iostream>
 #include <cstring>
-#include "../include/List.h"
-#include "../include/Song.h"
+#include "../include/list.h"
+#include "../include/song.h"
 
 class Menu
 {
 private:
   int option = 0, intBuffer;
-  List playlist;
-  // int List playlist = List();
   std::string stringBuffer;
   Song songBuffer = Song();
 
+  void callMethod( const int&, List<Song> &);
+  void userInterface(List<Song> &);
+  std::string getInputNameSong();
 public:
-  Menu();
+  Menu(List<Song> &);
 
-  void chooseOption();
-  void callMethod( const int&);
 };
 
 #endif // __MENU_H__
