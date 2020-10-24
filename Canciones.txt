@@ -1,16 +1,16 @@
 1
 Cardigan
-Taylor Swift
+caylor Swift
 Taylor
 -1
 1
 Mirrorball
-Taylor Swift
+daylor Swift
 Taylor
 0
 1
 Blank Space
-Taylor Swift
+aaylor Swift
 Taylor
 1
 1
@@ -20,17 +20,17 @@ Taylor
 2
 1
 Gorgeous
-Taylor Swift
+taylor Swift
 Taylor
 3
 1
 End Game
-Taylor Swift
+baylor Swift
 Taylor
 4
 1
 I Did Something Bad
-Taylor Swift
+eaylor Swift
 Taylor
 5
 1
@@ -45,7 +45,7 @@ Taylor
 7
 1
 London Boy
-Taylor Swift
+faylor Swift
 Taylor
 8
 1
@@ -55,6 +55,6 @@ Taylor
 9
 1
 The Man
-Taylor Swift
+gaylor Swift
 Taylor
 10
