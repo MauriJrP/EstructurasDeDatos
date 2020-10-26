@@ -31,12 +31,13 @@ class List
 {
 private:
   T data[ARRAYSIZE];
-  int lastValue;
+  static int lastValue;
 
   bool isValid(const int &);
   void copyAll(const List<T, ARRAYSIZE> &);
   void swapData(T &, T &);
   static bool greaterThan(const T &, const T &);
+  static bool lessThanOrEqualTo(const T &, const T &);
 
 public:
   List();
@@ -60,6 +61,8 @@ public:
   void insertSort(bool (*comp)(const T &a, const T &b) = List::greaterThan);
   void selectSort(bool (*comp)(const T &a, const T &b) = List::greaterThan);
   void shellSort(bool (*comp)(const T &a, const T &b) = List::greaterThan);
+  void mergeSort(const int &left = 0, const int &right = lastValue, bool (*comp)(const T &a, const T &b) = List::lessThanOrEqualTo);
+  void quickSort(const int &left = 0, const int &right = lastValue, bool (*comp)(const T &a, const T &b) = List::lessThanOrEqualTo);
 
   void print();
   void reset();
@@ -69,13 +72,17 @@ public:
 
 // -------- ------- ------ ----- Implementation ----- ------ ------- --------
 using namespace std;
+
+template <class T, int ARRAYSIZE>
+int List<T, ARRAYSIZE>::lastValue = -1;
+
 template <class T, int ARRAYSIZE>
 List<T, ARRAYSIZE>::List()
 {
   lastValue = -1;
 }
 
-template<class T, int ARRAYSIZE>
+template <class T, int ARRAYSIZE>
 List<T, ARRAYSIZE>::List(const List<T, ARRAYSIZE> &newList)
 {
   copyAll(newList);
@@ -106,12 +113,17 @@ void List<T, ARRAYSIZE>::swapData(T &a, T &b)
   b = aux;
 }
 
-template<class T, int ARRAYSIZE>
+template <class T, int ARRAYSIZE>
 bool List<T, ARRAYSIZE>::greaterThan(const T &a, const T &b)
 {
   return a > b;
 }
 
+template<class T, int ARRAYSIZE>
+bool List<T, ARRAYSIZE>::lessThanOrEqualTo(const T &a, const T &b)
+{
+  return a <= b;
+}
 
 template <class T, int ARRAYSIZE>
 bool List<T, ARRAYSIZE>::isEmpty()
@@ -276,14 +288,17 @@ void List<T, ARRAYSIZE>::insertSort(bool (*comp)(const T &a, const T &b))
   int i{1};
   int j{0};
   T aux;
-  while( i <= lastValue ) {
+  while (i <= lastValue)
+  {
     aux = data[i];
     j = i;
-    while ( j > 0 and comp(data[j - 1], aux) ) {
-      data[j] = data[j-1];
+    while (j > 0 and comp(data[j - 1], aux))
+    {
+      data[j] = data[j - 1];
       j--;
     }
-    if ( i != j ) {
+    if (i != j)
+    {
       data[j] = aux;
     }
     i++;
@@ -295,16 +310,20 @@ void List<T, ARRAYSIZE>::selectSort(bool (*comp)(const T &a, const T &b))
 {
   int smaller{0};
   int j{0};
-  for( int i{0}; i < lastValue; i++ ) {
+  for (int i{0}; i < lastValue; i++)
+  {
     smaller = i;
     j = i + 1;
-    while( j <= lastValue ) {
-      if ( comp(data[smaller], data[j]) ) {
+    while (j <= lastValue)
+    {
+      if (comp(data[smaller], data[j]))
+      {
         smaller = j;
       }
       j++;
     }
-    if ( smaller != i ) {
+    if (smaller != i)
+    {
       swapData(data[smaller], data[i]);
     }
   }
@@ -325,11 +344,14 @@ void List<T, ARRAYSIZE>::shellSort(bool (*comp)(const T &a, const T &b))
   int diferential{decreasingSequence[sequencePosition]};
   int i{0};
   int j{0};
-  while ( diferential > 0 ) {
+  while (diferential > 0)
+  {
     i = diferential;
-    while ( i <= lastValue ) {
+    while (i <= lastValue)
+    {
       j = i;
-      while ( j >= diferential and comp(data[j - diferential], data[j]) ) {
+      while (j >= diferential and comp(data[j - diferential], data[j]))
+      {
         swapData(data[j - diferential], data[j]);
         j -= diferential;
       }
@@ -341,11 +363,89 @@ void List<T, ARRAYSIZE>::shellSort(bool (*comp)(const T &a, const T &b))
 }
 
 template <class T, int ARRAYSIZE>
+// comp = lessThanOrEqualTo
+void List<T, ARRAYSIZE>::mergeSort(const int &left, const int &right, bool (*comp)(const T &a, const T &b))
+{
+  if ( comp(right, left) ) return; //stop recursion
+
+  // divide and conquer
+  int half = (left + right) / 2;
+  mergeSort(left, half);
+  mergeSort(half + 1, right);
+
+  // Copy to auxiliary
+  static T auxiliaryArray[ARRAYSIZE];
+  for( int n{left}; n <= right; n++ ) {
+    auxiliaryArray[n] = data[n];
+  }
+
+  // Merge
+  int i = left;
+  int j{half + 1};
+  int x{left};
+  while( i <= half and j <= right ) {
+    while( i <= half and comp(auxiliaryArray[i], auxiliaryArray[j]) ) {
+      data[x] = auxiliaryArray[i];
+      x++;
+      i++;
+    }
+    if ( i <= half ) {
+      while( j <= right and comp(auxiliaryArray[j], auxiliaryArray[i]) ) {
+        data[x] = auxiliaryArray[j];
+        x++;
+        j++;
+      }
+    }
+  }
+  while( i <= half ) {
+    data[x] = auxiliaryArray[i];
+    x++;
+    i++;
+  }
+
+  while( j <= right ) {
+    data[x] = auxiliaryArray[j];
+    x++;
+    j++;
+  }
+}
+
+// comp = lessThanOrEqualTo
+template <class T, int ARRAYSIZE>
+void List<T, ARRAYSIZE>::quickSort(const int &left, const int &right, bool (*comp)(const T &a, const T &b))
+{
+  if ( comp(right, left) ) return; //stop recursion
+
+  int i{left};
+  int j{right};
+
+  while( i < j ) {
+    while( i < j and comp(data[i], data[right]) ) {
+      i++;
+    }
+    while( i < j and comp(data[right], data[j] ) ) {
+      j--;
+    }
+
+    if ( i != j ) {
+      swapData(data[i], data[j]);
+    }
+  }
+
+  if ( i != right ) {
+    swapData(data[i], data[right]);
+  }
+
+  quickSort(left, i - 1);
+  quickSort(i + 1, right);
+}
+
+template <class T, int ARRAYSIZE>
 void List<T, ARRAYSIZE>::print()
 {
   for (int i = 0; i <= lastValue; i++)
   {
-    std::cout << "Posicion: " + to_string(i) << data[i].toString() << endl;
+    std::cout << "Posicion: " + to_string(i) << " = " << data[i] << endl;
   }
 }
 
@@ -355,7 +455,7 @@ void List<T, ARRAYSIZE>::reset()
   lastValue = -1;
 }
 
-template<class T, int ARRAYSIZE>
+template <class T, int ARRAYSIZE>
 void List<T, ARRAYSIZE>::operator=(const List<T, ARRAYSIZE> &newList)
 {
   copyAll(newList);

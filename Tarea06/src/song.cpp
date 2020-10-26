@@ -71,17 +71,17 @@ string Song::toString()
   return song;
 }
 
-bool Song::compareByAuthor(const Song &a, const Song &b)
+bool Song::compareByInterpreter(const Song &a, const Song &b)
 {
-  string stringA{toLower(a.author)};
-  string stringB{toLower(b.author)};
+  string stringA{toLower(a.getInterpreter())};
+  string stringB{toLower(b.getInterpreter())};
   return stringA > stringB;
 }
 
 bool Song::compareByName(const Song &a, const Song &b)
 {
-  string stringA{toLower(a.name)};
-  string stringB{toLower(b.name)};
+  string stringA{toLower(a.getName())};
+  string stringB{toLower(b.getName())};
   return stringA > stringB;
 }
 

@@ -29,7 +29,7 @@ public:
   void setPosition(const int&);
 
   std::string toString();
-  static bool compareByAuthor(const Song &, const Song &);
+  static bool compareByInterpreter(const Song &, const Song &);
   static bool compareByName(const Song &, const Song &);
 
   bool operator == (const Song &) const;
@@ -42,26 +42,3 @@ public:
 
 #endif // __SONG_H__
 
-
-// static int compByName(const Song&, const Song&);
-
-// // Obvio hay que implementar:
-// int Song::compByCode(const Song& a, const Song& b) { ...
-
-// // En la implementación del sort de la lista:
-// void sortDataBubble(int (const T&,const T&)); /// para comparacion externa
-
-// void sortDataBubble(int (const T&,const T&)); /// para comparacion lazy
-
-
-// // Y obvio: implementar...
-// template <class T, int ARRAYSIZE>
-// void List<T, ARRAYSIZE>::sortDataBubble(int comp(const T&,const T&)) { ...
-//   if (comp(data[j], data[j + 1]) > 0) { ...
-
-
-// void List<T, ARRAYSIZE>::sortDataBubble(int comp(const T&,const T&)) { ... /// para lazy
-
-
-// // En la interfaz de usuario:
-// myList.sortDataBubble(Song::compByName);

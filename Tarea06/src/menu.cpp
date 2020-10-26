@@ -18,7 +18,7 @@ void Menu::userInterface(List<Song> &myList)
     cout << "3.- Busqueda Lineal" << endl;
     cout << "4.- Busqueda Binaria" << endl;
     cout << "5.- Ordenar Por Nombre" << endl;
-    cout << "6.- Ordenar Por Autor" << endl;
+    cout << "6.- Ordenar Por Interprete" << endl;
     cout << "7.- Salir" << endl << endl;
     cout << "opcion: "; cin >> option;
     if ( option != 7 ) {
@@ -102,16 +102,16 @@ void Menu::chooseSortMethod(List<Song> &myList, const int &value) {
   switch (option)
   {
   case 1:
-    value == 1 ? myList.bubbleSort(Song::compareByName) : myList.bubbleSort(Song::compareByAuthor);
+    value == 1 ? myList.bubbleSort(Song::compareByName) : myList.bubbleSort(Song::compareByInterpreter);
     break;
   case 2:
-    value == 1 ? myList.insertSort(Song::compareByName) : myList.insertSort(Song::compareByAuthor);
+    value == 1 ? myList.insertSort(Song::compareByName) : myList.insertSort(Song::compareByInterpreter);
     break;
   case 3:
-    value == 1 ? myList.selectSort(Song::compareByName) : myList.selectSort(Song::compareByAuthor);
+    value == 1 ? myList.selectSort(Song::compareByName) : myList.selectSort(Song::compareByInterpreter);
     break;
   case 4:
-    value == 1 ? myList.shellSort(Song::compareByName) : myList.shellSort(Song::compareByAuthor);
+    value == 1 ? myList.shellSort(Song::compareByName) : myList.shellSort(Song::compareByInterpreter);
     break;
   default:
     cout << "Opcion invalida\n";
