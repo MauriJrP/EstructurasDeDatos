@@ -1,0 +1,40 @@
+Tipo de Dato Primitivo: Tipo de dato mas basico
+Caracter, Entero, Real, Booleano y Apuntador
+Memoria: Celdas en forma de vector que almacenan impulsos electricos para formar bytes
+Byte, Word, DoubleWord, QuadWord, DoubleQuadWord
+
+Dato estructurado: Son agrupaciones de otros tipos de datos primitivos y/o estructurados
+Arreglo, Registros, Enumerados y Uniones
+-------- ------- ------ ----- 2 ----- ------ ------- ---------------- ------- ------ -----  ----- ------ ------- --------
+Registros: Conjutno de elementos que pueden ser distinto tipo tratados como una sola entidad
+Anidacion Estructural: Capacidad para almacenar datos de tipo estructurado dentro de otros datos de tipo estructurado
+
+Composicion: Objetos compuestos por otros objetos
+-------- ------- ------ ----- 3 ----- ------ ------- ---------------- ------- ------ -----  ----- ------ ------- --------
+TDA o ADT: Dato fruto de un modelado, su comportamiento esta definido por un conjunto de valores y un conjunto de operaciones de acuerdo a un modelo que establece dicho comportamiento
+La definicion d ADT solo menciona que  operaciones se realizaran, pero no como se implementaran, como organizar los datos en la memoria ni los algoritmos para implementar las operaciones
+Abstraccion: proceso de proporcionar solo lo esencial y ocultar los detalles
+Lista: TDA q almacena elementos normalmente del mismo tipo, de forma contigua, no nocesariamente ordenados, puede insertar y eliminar en cualquier posicion, reubicando los elementos para que sigan de forma contigua al eliminar
+Operaciones: Inicializa, Vacia, LLena, Inserta, Elimina, Primero, Ultimo, Anterior, Siguiente, Localiza, Recupera, Ordena, Imprime
+-------- ------- ------ ----- 4 ----- ------ ------- ---------------- ------- ------ -----  ----- ------ ------- --------
+No generan Posiciones Invalidas, solo errores o excepciones
+Pila: TDA q almacena elementos mismo tipo contiguos. Los elementos son agregados y eliminados unicamente por uno de los extremos de la estructura. LIFO
+Operaciones: Inicializa, Vacia, Llena, Push, Pop, Top
+
+Cola: TDA almacena elementos mismo tipo contiguos. Los elementos son introducidos por un extremo y eliminados por el extremo contrario. FIFO
+Operaciones: Inicializa, Vacia, Llena, Enqueue(encolar), Dequeue(desencolar), Front
+-------- ------- ------ ----- 5 ----- ------ ------- ---------------- ------- ------ -----  ----- ------ ------- --------
+Busquedas: Una funcion de busqueda realiza la localizacion de un elemento dentro de una lista o un arreglo, devuelve posicion
+Tipos: Lineal O(n) y Binaria O(log2N)(iterativa y recursiva)
+-------- ------- ------ ----- 6 ----- ------ ------- ---------------- ------- ------ -----  ----- ------ ------- --------
+BubbleSort: Iterativo, Basado en intercambios, Diferencial fijo
+InsertSort: Iterativo, Basado en desplazamientos, Tomas un elemento y le buscas su posicion, dezplazas los demas y lo insertas(Al principio se toma en cuenta que el primer elemento ya esta ordenado), comenzando desde el 2, el 1 ya esta ordenados
+SelectSort: Iterativo, Basado en intercambios, Diferencial variable, Se van sorteando las posiciones para el elemento menor que se va separando y comparando hasta cambiar de opinion sobre el menor
+ShellSort: Iterativo, Basado en intercambios, Diferencial Decreciente. Se puede elejir el diferencial que quieras. Se compara primero el elemento con el que esta a la diferencial hacia delante, si es menor se hace el intercambio y se compara con el que esta a la distancia del diferencial hacia atras, y asi ciclicamente hasta que llegues al inicio del arreglo, luego se hace lo mismo con el elemento siguiente, al utlimo disminuyes el diferencial y repites todo el proceso hasta que el diferencial sea 0
+-------- ------- ------ ----- 7 ----- ------ ------- ---------------- ------- ------ -----  ----- ------ ------- --------
+Recursividad: Capacidad de una funcion de activarse a si misma, de forma directa o indirecta
+Algoritmo de intercalacion: Se crea un nuevo arreglo ordenado, juntando 2 arreglos ya ordenados
+MergeSort: Recursivo, Separa el arreglo a la mitad repetitivamente hasta que son de 1 elemento y va haciendo intercalacion
+QuickSort: Recursivo, Se toma un pivote y pasas los mas chicos a la izquierda y los grandes a la derecha
+
+

@@ -1,0 +1,40 @@
+1.- Tipos de Datos Primitivos y Estructurados
+    41  https://youtu.be/bkUvnTf8CpI
+    21  https://youtu.be/j7DB1PoXt6M
+
+2.- Anidacion Estructural
+    21  https://youtu.be/DUIxDd6U4Eo
+    16  https://youtu.be/1APfLJYIm8Q
+    52  https://youtu.be/9XTUX3eBQm4
+
+3.- TDA Lista estatica
+    23  https://youtu.be/oK6A66gkX8E
+    41  https://youtu.be/YGHMHGgQEbU
+    68  https://youtu.be/R168mm7LH7c
+
+4.- Pila Y Cola
+    13  https://youtu.be/GsKEGbrIeQ0
+    13  https://youtu.be/I9somfgGNy8
+    30  https://youtu.be/hFLQasWwa7I
+
+    9   https://youtu.be/x_YwI7j7YJM
+    23  https://youtu.be/JBs9heGb5eQ
+    17  https://youtu.be/zpY0oMcIUds
+
+    35  https://youtu.be/ilKSpyH3Gns
+
+5.- Busqueda Lineal y Binaria
+    32  https://youtu.be/mrf57e7DYfQ
+    31  https://youtu.be/p4nMLKUVLSk
+
+6.- Algortimos de ordenamiento iterativos
+    27  https://youtu.be/vj1jc8zDKig    BubbleSort
+    18  https://youtu.be/fdDH01QF7LI    InsertSort
+    16  https://youtu.be/GTjOcv5W5CE    SelectSort
+    30  https://youtu.be/fL1q4jMcczg    ShellSort
+    23  https://youtu.be/CW_fKLiKlME
+
+7.- Algoritmos de ordenamiento recursivos
+    37  https://youtu.be/dEb4QVew9ks    Recursividad
+    18  https://youtu.be/cD-Gwu4pL_0
+    36  https://youtu.be/c7Cpwje7uDQ    MergeSort
