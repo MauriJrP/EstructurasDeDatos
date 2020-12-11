@@ -33,10 +33,10 @@ public:
 
   ~Node();
 
-  T *getDataPtr() const;
-  T getData() const;
-  Node<T> *getLeft() const;
-  Node<T> *getRight() const;
+  T *&getDataPtr();
+  T &getData();
+  Node<T> *&getLeft();
+  Node<T> *&getRight();
 
   void setDataPtr(T *);
   void setData(const T &);
@@ -62,16 +62,18 @@ template <class T>
 Node<T>::~Node()
 {
   delete dataPtr;
+  left = nullptr;
+  right = nullptr;
 }
 
 template <class T>
-T * Node<T>::getDataPtr() const
+T *& Node<T>::getDataPtr()
 {
   return dataPtr;
 }
 
 template <class T>
-T Node<T>::getData() const
+T & Node<T>::getData()
 {
   if (dataPtr == nullptr) {
     throw Exception("Dato inexistente, getData");
@@ -80,13 +82,13 @@ T Node<T>::getData() const
 }
 
 template <class T>
-Node<T> *Node<T>::getLeft() const
+Node<T> *& Node<T>::getLeft()
 {
   return left;
 }
 
 template <class T>
-Node<T> *Node<T>::getRight() const
+Node<T> *& Node<T>::getRight()
 {
   return right;
 }
