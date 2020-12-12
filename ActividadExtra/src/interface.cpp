@@ -46,4 +46,8 @@ void Interface::userInterface(BinaryTree<int> &myBinaryTree)
   cout << "\nAltura Sub Arbol Derecho: ";
   cout << myBinaryTree.getHeight(myBinaryTree.getRightSubTree());
 
+  cout << endl;
+  List<int> myList(myBinaryTree.toList("pre"));
+  cout << "\nLista: \n\n" << myList.toString();
+
 }

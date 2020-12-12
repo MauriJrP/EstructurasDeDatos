@@ -1,13 +1,13 @@
-#ifndef __NODE_H__
-#define __NODE_H__
+#ifndef __NODETREE_H__
+#define __NODETREE_H__
 
 template <class T>
-class Node
+class NodeTree
 {
 private:
   T *dataPtr;
-  Node<T> *prev;
-  Node<T> *next;
+  NodeTree<T> *left;
+  NodeTree<T> *right;
 
 public:
   class Exception : public std::exception
@@ -28,29 +28,29 @@ public:
     }
   };
 
-  Node();
-  Node(const T &);
+  NodeTree();
+  NodeTree(const T &);
 
-  ~Node();
+  ~NodeTree();
 
-  T *getDataPtr() const;
-  T getData() const;
-  Node<T> *getPrev() const;
-  Node<T> *getNext() const;
+  T *&getDataPtr();
+  T &getData();
+  NodeTree<T> *&getLeft();
+  NodeTree<T> *&getRight();
 
   void setDataPtr(T *);
   void setData(const T &);
-  void setPrev(Node *);
-  void setNext(Node *);
+  void setLeft(NodeTree *);
+  void setRight(NodeTree *);
 };
 
 // -------- ------- ------ ----- Implementation ----- ------ ------- --------
 
 template <class T>
-Node<T>::Node() : dataPtr(nullptr), prev(nullptr), next(nullptr) {}
+NodeTree<T>::NodeTree() : dataPtr(nullptr), left(nullptr), right(nullptr) {}
 
 template <class T>
-Node<T>::Node(const T &e) : dataPtr(new T(e)), prev(nullptr), next(nullptr)
+NodeTree<T>::NodeTree(const T &e) : dataPtr(new T(e)), left(nullptr), right(nullptr)
 {
   if (dataPtr == nullptr)
   {
@@ -59,19 +59,21 @@ Node<T>::Node(const T &e) : dataPtr(new T(e)), prev(nullptr), next(nullptr)
 }
 
 template <class T>
-Node<T>::~Node()
+NodeTree<T>::~NodeTree()
 {
   delete dataPtr;
+  left = nullptr;
+  right = nullptr;
 }
 
 template <class T>
-T * Node<T>::getDataPtr() const
+T *& NodeTree<T>::getDataPtr()
 {
   return dataPtr;
 }
 
 template <class T>
-T Node<T>::getData() const
+T & NodeTree<T>::getData()
 {
   if (dataPtr == nullptr) {
     throw Exception("Dato inexistente, getData");
@@ -80,25 +82,25 @@ T Node<T>::getData() const
 }
 
 template <class T>
-Node<T> *Node<T>::getPrev() const
+NodeTree<T> *& NodeTree<T>::getLeft()
 {
-  return prev;
+  return left;
 }
 
 template <class T>
-Node<T> *Node<T>::getNext() const
+NodeTree<T> *& NodeTree<T>::getRight()
 {
-  return next;
+  return right;
 }
 
 template <class T>
-void Node<T>::setDataPtr(T *p)
+void NodeTree<T>::setDataPtr(T *p)
 {
   dataPtr = p;
 }
 
 template <class T>
-void Node<T>::setData(const T &e)
+void NodeTree<T>::setData(const T &e)
 {
   if (dataPtr == nullptr) {
     if ( (dataPtr = new T(e)) == nullptr ) {
@@ -110,15 +112,15 @@ void Node<T>::setData(const T &e)
 }
 
 template <class T>
-void Node<T>::setPrev(Node *p)
+void NodeTree<T>::setLeft(NodeTree *p)
 {
-  prev = p;
+  left = p;
 }
 
 template <class T>
-void Node<T>::setNext(Node *p)
+void NodeTree<T>::setRight(NodeTree *p)
 {
-  next = p;
+  right = p;
 }
 
-#endif // __NODE_H__
+#endif // __NODETREE_H__

@@ -6,7 +6,8 @@
 #include <chrono>
 #include <functional>
 #include <ctime>
-#include "../include/binaryTree.h"
+#include "./binaryTree.h"
+#include "./list.h"
 
 class Interface
 {

@@ -2,8 +2,9 @@
 #define __BINARYTREE_H__
 
 #include <iostream>
-#include "./node.h"
-// #include "list.h"
+#include <cstring>
+#include "./nodeTree.h"
+#include "list.h"
 
 // -------- ------- ------ ----- Definition ----- ------ ------- --------
 
@@ -11,10 +12,11 @@ template <class T>
 class BinaryTree
 {
 public:
-  typedef Node<T> *Position;
+  typedef NodeTree<T> *Position;
 
 private:
   Position root;
+  List<T> myList;
 
   void copyAll(const BinaryTree<T> &, Position &r = nullptr);
 
@@ -29,14 +31,16 @@ private:
   void parseInOrder(Position &);
   void parsePostOrder(Position &);
 
-  int getBalanceFactor(Node<T> *&);
+  List<T> toList(std::string, Position &, Position &);
 
-  void simpleLeftRotation(Node<T> *&);
-  void simpleRightRotation(Node<T> *&);
-  void doubleLeftRotation(Node<T> *&);
-  void doubleRightRotation(Node<T> *&);
+  int getBalanceFactor(NodeTree<T> *&);
 
-  void doBalancing(Node<T> *&);
+  void simpleLeftRotation(NodeTree<T> *&);
+  void simpleRightRotation(NodeTree<T> *&);
+  void doubleLeftRotation(NodeTree<T> *&);
+  void doubleRightRotation(NodeTree<T> *&);
+
+  void doBalancing(NodeTree<T> *&);
 
 public:
   class Exception : public std::exception
@@ -87,7 +91,8 @@ public:
   void parseInOrder();
   void parsePostOrder();
 
-  List<T> & toList(string &);
+  List<T> toList(std::string order);
+  // template<T> friend class List;
 
   void deleteAll(Position &);
 
@@ -189,12 +194,12 @@ void BinaryTree<T>::insertData(Position &r, const T &data) //r = root
   { //is leaf
     try
     {
-      if ((r = new Node<T>(data)) == nullptr)
+      if ((r = new NodeTree<T>(data)) == nullptr)
       {
         throw Exception("Memoria no disponible, insertData");
       }
     }
-    catch (typename Node<T>::Exception ex)
+    catch (typename NodeTree<T>::Exception ex)
     {
       throw Exception(ex.what());
     }
@@ -305,22 +310,47 @@ void BinaryTree<T>::parsePostOrder(Position &r)
 }
 
 template<class T>
-List<T> & BinaryTree<T>::toList(string &)
+List<T>  BinaryTree<T>::toList(string order){
+  return toList(order, root, myList.getLast());
+}
+
+template<class T>
+List<T>  BinaryTree<T>::toList(string order, Position &r, Position &n)
 {
-  
+  if (r == nullptr) return myList;
+
+  if (order == "pre") {
+    // cerr << r->getData() << ", ";
+    n->setLeft(myList.header->getLeft());
+    n->setRight(myList.header);
+
+    myList.header->getLeft()->setRight(r);
+    myList.header->setRight(r);
+    toList(order, r->getLeft(), myList.getLast());
+    toList(order, r->getRight(), myList.getLast());
+    // myList.insert(r->getData(), myList.getLast());
+    // cerr << order << endl;
+  } else if (order == "in") {
+    // cerr <
+  } else if (order == "pos") {
+
+  } else {
+    cerr << "Orden invalido";
+  }
+  return myList;
 }
 
 template <class T>
-int BinaryTree<T>::getBalanceFactor(Node<T> *& r)
+int BinaryTree<T>::getBalanceFactor(NodeTree<T> *& r)
 {
   return getHeight(r->getRight()) - getHeight(r->getLeft());
 }
 
 template <class T>
-void BinaryTree<T>::simpleLeftRotation(Node<T> *&r)
+void BinaryTree<T>::simpleLeftRotation(NodeTree<T> *&r)
 {
-  Node<T> *aux1(r->getRight());
-  Node<T> *aux2(aux1->getLeft());
+  NodeTree<T> *aux1(r->getRight());
+  NodeTree<T> *aux2(aux1->getLeft());
 
   r->setRight(aux2);
   aux1->setLeft(r);
@@ -328,10 +358,10 @@ void BinaryTree<T>::simpleLeftRotation(Node<T> *&r)
 }
 
 template <class T>
-void BinaryTree<T>::simpleRightRotation(Node<T> *&r)
+void BinaryTree<T>::simpleRightRotation(NodeTree<T> *&r)
 {
-  Node<T> *aux1(r->getLeft());
-  Node<T> *aux2(aux1->getRight());
+  NodeTree<T> *aux1(r->getLeft());
+  NodeTree<T> *aux2(aux1->getRight());
 
   r->setLeft(aux2);
   aux1->setRight(r);
@@ -339,12 +369,12 @@ void BinaryTree<T>::simpleRightRotation(Node<T> *&r)
 }
 
 template <class T>
-void BinaryTree<T>::doubleLeftRotation(Node<T> *&r)
+void BinaryTree<T>::doubleLeftRotation(NodeTree<T> *&r)
 {
-  Node<T> *aux1(r->getRight());
-  Node<T> *aux2(r->getRight()->getLeft());
-  Node<T> *aux3(aux2->getLeft());
-  Node<T> *aux4(aux2->getRight());
+  NodeTree<T> *aux1(r->getRight());
+  NodeTree<T> *aux2(r->getRight()->getLeft());
+  NodeTree<T> *aux3(aux2->getLeft());
+  NodeTree<T> *aux4(aux2->getRight());
 
   r->setRight(aux3);
   aux1->setLeft(aux4);
@@ -357,12 +387,12 @@ void BinaryTree<T>::doubleLeftRotation(Node<T> *&r)
 }
 
 template <class T>
-void BinaryTree<T>::doubleRightRotation(Node<T> *&r)
+void BinaryTree<T>::doubleRightRotation(NodeTree<T> *&r)
 {
-  Node<T> *aux1(r->getLeft());
-  Node<T> *aux2(aux1->getRight());
-  Node<T> *aux3(aux2->getRight());
-  Node<T> *aux4(aux2->getLeft());
+  NodeTree<T> *aux1(r->getLeft());
+  NodeTree<T> *aux2(aux1->getRight());
+  NodeTree<T> *aux3(aux2->getRight());
+  NodeTree<T> *aux4(aux2->getLeft());
 
   r->setLeft(aux3);
   aux1->setRight(aux4);
@@ -375,7 +405,7 @@ void BinaryTree<T>::doubleRightRotation(Node<T> *&r)
 }
 
 template <class T>
-void BinaryTree<T>::doBalancing(Node<T> *&r)
+void BinaryTree<T>::doBalancing(NodeTree<T> *&r)
 {
   int balanceFactor;
   balanceFactor = getBalanceFactor(r);
