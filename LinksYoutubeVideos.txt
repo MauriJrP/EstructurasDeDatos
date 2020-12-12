@@ -1,40 +1,98 @@
+Total: 1687 minutos
+
+EXTRAS  197 minutos
+    39  https://youtu.be/U6ZQlt-219s    Crear un proyecto en codeblocks
+    46  https://youtu.be/M3H2w-GygvM    Archivos
+    17  https://youtu.be/UnLGYbGBuVc    Introduccion basica a herencia
+    44  https://youtu.be/v8Ou-E-Zfwg    Introduccion a programacion en paralelo Thread
+    51  https://youtu.be/ZiETu1vOxss    Listas ligadas y ordenamientos
+
+PARCIAL 1   748 minutos
+
 1.- Tipos de Datos Primitivos y Estructurados
-    41  https://youtu.be/bkUvnTf8CpI
-    21  https://youtu.be/j7DB1PoXt6M
+    41  https://youtu.be/bkUvnTf8CpI    Tipo de dato primitivo
+    21  https://youtu.be/j7DB1PoXt6M    Arreglos y cadenas
 
 2.- Anidacion Estructural
-    21  https://youtu.be/DUIxDd6U4Eo
-    16  https://youtu.be/1APfLJYIm8Q
-    52  https://youtu.be/9XTUX3eBQm4
+    21  https://youtu.be/DUIxDd6U4Eo    Registros, Anidacion estructural
+    16  https://youtu.be/1APfLJYIm8Q    Objetos
+    52  https://youtu.be/9XTUX3eBQm4    Objetos Codigo c++
 
 3.- TDA Lista estatica
-    23  https://youtu.be/oK6A66gkX8E
-    41  https://youtu.be/YGHMHGgQEbU
-    68  https://youtu.be/R168mm7LH7c
+    23  https://youtu.be/oK6A66gkX8E    Lista Modelo
+    41  https://youtu.be/YGHMHGgQEbU    Lista implemetacion estatica
+    68  https://youtu.be/R168mm7LH7c    Lista implementacion estatica codigo c++
 
 4.- Pila Y Cola
-    13  https://youtu.be/GsKEGbrIeQ0
-    13  https://youtu.be/I9somfgGNy8
-    30  https://youtu.be/hFLQasWwa7I
+    13  https://youtu.be/GsKEGbrIeQ0    Pila
+    13  https://youtu.be/I9somfgGNy8    Pila implementacion estatica
+    30  https://youtu.be/hFLQasWwa7I    Pila implementacion estatica codigo c++
 
-    9   https://youtu.be/x_YwI7j7YJM
-    23  https://youtu.be/JBs9heGb5eQ
-    17  https://youtu.be/zpY0oMcIUds
+    9   https://youtu.be/x_YwI7j7YJM    Cola
+    23  https://youtu.be/JBs9heGb5eQ    Cola implementacion estatica
+    17  https://youtu.be/zpY0oMcIUds    Cola implementacion estatica codigo c++
 
-    35  https://youtu.be/ilKSpyH3Gns
+    35  https://youtu.be/ilKSpyH3Gns    Conversion de expresiones en notacion infija a posfija
 
 5.- Busqueda Lineal y Binaria
-    32  https://youtu.be/mrf57e7DYfQ
-    31  https://youtu.be/p4nMLKUVLSk
+    32  https://youtu.be/mrf57e7DYfQ    Busquedas
+    31  https://youtu.be/p4nMLKUVLSk    Busquedas codigo c++
 
 6.- Algortimos de ordenamiento iterativos
     27  https://youtu.be/vj1jc8zDKig    BubbleSort
     18  https://youtu.be/fdDH01QF7LI    InsertSort
     16  https://youtu.be/GTjOcv5W5CE    SelectSort
     30  https://youtu.be/fL1q4jMcczg    ShellSort
-    23  https://youtu.be/CW_fKLiKlME
+    23  https://youtu.be/CW_fKLiKlME    Metodos de ordenamiento iterativos codigo c++
 
 7.- Algoritmos de ordenamiento recursivos
     37  https://youtu.be/dEb4QVew9ks    Recursividad
-    18  https://youtu.be/cD-Gwu4pL_0
+    18  https://youtu.be/cD-Gwu4pL_0    Recursividad codigo c++
+    
     36  https://youtu.be/c7Cpwje7uDQ    MergeSort
+    27  https://youtu.be/ns40UYUEkEs    QuickSort
+    13  https://youtu.be/yJpBCarzo3M    Criterios de evaluacion de eficiencia en ordenamientos
+    17  https://youtu.be/eOmLZIq5Yfs    Metodos de ordenamiento recursivos codigo c++
+
+PARCIAL 2   742 minutos
+
+8.- Apuntadores
+    11  https://youtu.be/dbyJ5QGwL48    Listas con cursores
+    44  https://youtu.be/SkOp1b9IkcA    Nociones basicas de apuntadores
+
+9.- Lista implementacion dinamica simplemente ligada
+    53  https://youtu.be/dhIDjN0VIGk    Lista simplemente ligada lineal sin encabezado
+    50  https://youtu.be/dhIDjN0VIGk    LSLLSE Codigo c++
+    
+    44  https://youtu.be/s7UIMPhMJgU    Lista simplemente ligada circular sin encabezado
+    39  https://youtu.be/RIACzjumxZ0    LSLCSE Codigo c++
+    
+    24  https://youtu.be/aCD01NDKeQQ    Lista simplemente ligada lineal con encabezado de atributos
+    
+10.- Lista implementacion dinamica doblemente ligada
+    40  https://youtu.be/6WYWXxZGQQQ    Lista doblemente ligada lineal sin encabezado
+    23  https://youtu.be/as5QOFUh1Wc    LDLLSE Codigo c++
+    
+    33  https://youtu.be/Vj9di7T0d9k    Lista doblemente ligada circular sin encabezado
+    28  https://youtu.be/2_wgA4PzpOo    LDLCSE Codigo c++
+    
+    38  https://youtu.be/RbmdsS7ijLo    Lista doblemente ligada circular con encabezado dummy
+    40  https://youtu.be/6HG8TZ3XiAM    LDLCCED  Codigo c++
+    
+11.- La pila y la cola implementacion dinamica
+    9   https://youtu.be/SzJIoSCyl1s    Pila implementacion mediante una LSLLSE
+    12  https://youtu.be/9PA_htRCSqo    Pila ligada codigo c++
+    
+    14  https://youtu.be/yimaa6vGnDE    Cola implementacion mediante una LSLLCE
+    12  https://youtu.be/yscJ5ZgEYqo    Cola implementacion mediante una LDLCCED
+    19  https://youtu.be/I_m_8Hn8ggY    Cola implementada mediante una LDLCCED codigo c++
+    
+12.- El arbol binario de busqueda implementacion dinamica
+    52  https://youtu.be/c-QBOoscenM    Arbol binario de busqueda
+    12  https://youtu.be/itvQB7cVUmY    Arbol binario de busqueda implementacion ligada
+    36  https://youtu.be/6GEj508-aas    Arbol binario de busqueda implementacion ligada codigo c++
+    
+13.- El arbol AVL implementacion dinamica
+    72  https://youtu.be/ixOCdusq3MY    Arboles AVL
+    10  https://youtu.be/s_k3Royyqjc    Arboles AVL implementacion ligada
+    27  https://youtu.be/nSjoFOYyP2k    Arboles AVL implementacion ligada codigoc++
